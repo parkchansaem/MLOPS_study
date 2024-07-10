@@ -1,0 +1,33 @@
+version: '3'
+
+services:
+  target-mysql-server:
+    image: mysql
+    container_name: target-mysql-server
+    ports:
+      - 4001:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: "1111"
+      MYSQL_DATABASE: "targetdatabase"
+      MYSQL_USER: "targetuser"
+      MYSQL_PASSWORD: "targetpassword"
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "target-mysql-server", "-u", "targetuser", "--password=targetpassword"]
+      interval: 10s
+      timeout : 5s
+      retries: 5 
+  
+  table-creator:
+    build:
+      context: .
+      dockerfile: target.Dockerfile
+    container_name: table_creator
+    depends_on:
+      target-mysql-server:
+        condition: service_healthy
+
+networks:
+  default:
+    name: mlops-network
+    external: true
+

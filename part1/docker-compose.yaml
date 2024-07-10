@@ -1,0 +1,33 @@
+version: "3"
+
+services:
+  mysql-server:
+    image: mysql
+    container_name: mysql-server
+    ports:
+      - 4000:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: "1111"
+      MYSQL_DATABASE: "test"
+      MYSQL_USER: "chanseam"
+      MYSQL_PASSWORD: "qwe123!@#"
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "mysql-server", "-u", "chanseam", "--password=qwe123!@#"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+
+  data-generator:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    container_name: data-generator
+    depends_on:
+      mysql-server:
+        condition: service_healthy
+    command: ["mysql-server"]
+
+networks:
+  default:
+    name: mlops-network
+

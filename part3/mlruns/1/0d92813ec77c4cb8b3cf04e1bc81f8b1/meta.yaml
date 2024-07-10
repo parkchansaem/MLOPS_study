@@ -1,0 +1,15 @@
+artifact_uri: file:///home/chansaem/study/MLOPS_study/part3/mlruns/1/0d92813ec77c4cb8b3cf04e1bc81f8b1/artifacts
+end_time: 1716532778571
+entry_point_name: ''
+experiment_id: '1'
+lifecycle_stage: active
+run_id: 0d92813ec77c4cb8b3cf04e1bc81f8b1
+run_name: capable-asp-874
+run_uuid: 0d92813ec77c4cb8b3cf04e1bc81f8b1
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1716532777616
+status: 3
+tags: []
+user_id: chansaem

@@ -1,0 +1,19 @@
+{
+    "name": "mysql-sink-connector",
+    "config": { 
+        "connector.class": "io.confluent.connect.jdbc.JdbcSinkConnector",
+        "connection.url": "jdbc:mysql://target-mysql-server:3306/targetdatabase",
+        "connection.user": "targetuser",
+        "connection.password": "targetpassword",
+        "table.name.format": "iris_data",
+        "topics": "mysql-source-iris_data",
+        "auto.create": false,
+        "auto.evolve": false,
+        "tasks.max": 2,
+        "tansforms": "TimestampConverter",
+        "transforms.TimestampConverter.type": "org.apache.kafka.connect.transforms.TimestampConverter&Value",
+        "transforms.TimestampConverter.field": "timestamp",
+        "transforms.TimestampConverter.format":"yyyy-MM-dd HH:mm:ss.S",
+        "transforms.TimestampConverter.target.type": "Timestamp"
+    }
+}

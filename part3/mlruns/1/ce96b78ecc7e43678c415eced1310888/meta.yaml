@@ -1,0 +1,15 @@
+artifact_uri: file:///home/chansaem/study/MLOPS_study/part3/mlruns/1/ce96b78ecc7e43678c415eced1310888/artifacts
+end_time: 1716532782516
+entry_point_name: ''
+experiment_id: '1'
+lifecycle_stage: active
+run_id: ce96b78ecc7e43678c415eced1310888
+run_name: flawless-sheep-214
+run_uuid: ce96b78ecc7e43678c415eced1310888
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1716532781634
+status: 3
+tags: []
+user_id: chansaem

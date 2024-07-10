@@ -1,0 +1,21 @@
+{
+    "name": "mysql-source-connector",
+    "config": {
+        "connector.class": "io.confluent.connect.jdbc.JdbcSourceConnector",
+        "connection.url": "jdbc:mysql://mysql-server:3306/test",
+        "connection.user": "chanseam",
+        "connection.password": "qwe123!@#",
+        "table.whitelist": "iris_data",
+        "topic.prefix": "mysql-source-",
+        "topic.creation.default.partitions": 1,
+        "topic.creation.default.replication.factor": 1,
+        "mode": "incrementing",
+        "incrementing.column.name": "id",
+        "tasks.max": 2,
+        "transforms": "TimestampConverter",
+        "transforms.TimestampConverter.type": "org.apache.kafka.connect.transforms.TimestampConverter$Value",
+        "transforms.TimestampConverter.field": "timestamp",
+        "transforms.TimestampConverter.format": "yyyy-MM-dd HH:mm:ss.S",
+        "transforms.TimestampConverter.target.type": "string"
+    }
+}
