@@ -6,8 +6,7 @@ MLOPS_study
 - fastapi
 - mlflow
 - sklearn
-- 
-
+-
 
 
 
